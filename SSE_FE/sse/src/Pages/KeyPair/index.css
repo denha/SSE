@@ -1,0 +1,12 @@
+.create-btn-container{
+    display: flex;
+    justify-content: right;
+}
+
+.action{
+    margin:0 0.4rem;
+}
+
+.key-container{
+    margin:2rem 0;
+}

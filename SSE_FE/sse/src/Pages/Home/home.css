@@ -1,0 +1,37 @@
+.card-container{
+    margin:1.8rem 0;
+}
+
+
+.key-gen{
+display:flex;
+justify-content: space-between;
+}
+.key-gen-single{
+display:flex;
+justify-content: center;
+margin:1.8rem 0;
+ }
+.key-gen-card{
+width:48%;
+display: flex;
+justify-content: center;
+align-items: center;
+padding:0.8rem 0;
+}
+.key-img{
+    padding:0rem 0;
+}
+.password-group{
+    display: flex;
+    flex-direction: row;
+}
+.password-group-item{
+    margin: 0rem 0.5rem;
+}
+.upload-button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

@@ -1,0 +1,47 @@
+.search-container{
+margin:15rem 0;
+}
+
+.search-title{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:0.8rem 0;
+}
+.form-search{
+    display:flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.search-bottom{
+    display:flex;
+    justify-content: center;
+    align-items: center; 
+    padding:0.8rem 0;  
+}
+
+.search-box{
+    width:55%;
+}
+
+.custom-input {
+    border-color: #007bff !important; 
+  }
+
+.search-results{
+    margin:2rem 20rem;
+}
+.table-space-file{
+    padding-right:20rem;
+}
+.table-space{
+    padding:0 0.3rem;
+}
+.search-btn{
+    display: flex;
+    justify-content: space-between;
+}
+.search-btn-space{
+    margin:0rem 0.3rem;
+}

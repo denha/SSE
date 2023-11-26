@@ -1,0 +1,26 @@
+.notepad {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .notepad-content {
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    margin: 0;
+  }
+  
+  .file-viewer-heading{
+    display:flex;
+    justify-content: space-between;
+    margin:1rem 0;
+  }
+
+  .loader{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
