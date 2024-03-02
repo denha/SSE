@@ -54,7 +54,7 @@ new_files_detected = False
 file_exists = False
 
 # Step 4: Exchange the authorization code for an access token
-token_endpoint = 'http://88.193.178.23:8080/index.php/apps/oauth2/api/v1/token'
+token_endpoint = 'http://88.193.175.183:8080/index.php/apps/oauth2/api/v1/token'
 client_id = 'Sat1bLhgLJ5tCrzTEsbFWzGCr9RFbeNNoSeMB94MAqLUYLig85oDKWBbqA7DGtcZ'
 client_secret = '0VRDtEzUsvroiGYxwkq4ODSUNzJYByKe6BsCSPGFPaZIVg011WLyGZbYe1cblYgo'
 redirect_uri = 'http://88.193.178.239:8000/callback'
@@ -75,7 +75,7 @@ if response.status_code == 200:
     # print(f'Access token: {access_token}')
     # print('Authentication Successful!')
 
-    api_endpoint = 'http://88.193.178.23:8080/remote.php/dav/files/denha/'
+    api_endpoint = 'http://88.193.175.183:8080/remote.php/dav/files/denha/'
 
     # Set up the headers with the authorization token
     headers = {

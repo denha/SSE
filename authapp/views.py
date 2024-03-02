@@ -124,7 +124,7 @@ def callback(request):
 def auth_index(request,dataowner):
     print("dataowner",dataowner)
     os.environ["data-owner"] = dataowner
-    authorization_endpoint = 'http://88.193.178.23:8080/index.php/apps/oauth2/authorize'
+    authorization_endpoint = 'http://88.193.175.183:8080/index.php/apps/oauth2/authorize'
     client_id = 'Sat1bLhgLJ5tCrzTEsbFWzGCr9RFbeNNoSeMB94MAqLUYLig85oDKWBbqA7DGtcZ'
     redirect_uri = 'http://88.193.178.239:8000/callback'
     scope = 'read write'  # Adjust the scope as needed

@@ -149,7 +149,7 @@ def decrypt_file(file_id, owner,user_id):
         if get_cached_kske(user_id):
             keys = get_cached_kske(user_id)
         else:
-            keys = get_kske(data_owner, user_id)
+            keys = get_kske(owner, user_id)
             set_cached_kske(user_id, keys)
         status = False
         message = "success"
@@ -159,9 +159,7 @@ def decrypt_file(file_id, owner,user_id):
             remote_file_path = "/home/delauth/files/" + file_id
             local_file_path = os.path.join(download_dir, os.path.basename(remote_file_path))
             ssh_conn['sftp_client'].get(remote_file_path, local_file_path)
-
-            print("Downloaded",retrieve_key("KSKE", owner))
-            results = decrypt_aes_file(file_id, keys, download_dir, "", True)
+            results = decrypt_aes_file(file_id, keys, download_dir, file_id, True)
             status = True
             message ="success"
         else:
@@ -449,12 +447,18 @@ def sending_files(data_owner, selected_files):
 def get_kske(owner,user_id):
     try:
         keystore = redis_key_store_connection()
+        #print("users",'user' + str(user_id))
         encrypted_sk = keystore.hgetall('user' + str(user_id))
+        #print("encrypted_sk",encrypted_sk)
         decrypted_sk = decrypt_rsa_chunked(encrypted_sk['KEY'], retrieve_private_key("user" + str(user_id)))
+        #print("deck key",decrypted_sk)
         group = PairingGroup('SS512')
         sk = bytesToObject(decrypted_sk.encode('utf-8'), group)
         mpk = bytesToObject(retrieve_public_key("ta-abe").encode('utf-8'), group)
+        print("Before")
+        print("POlicy",retrieve_key("policy" + str(owner)))
         cipher_text = bytesToObject(retrieve_key("policy" + str(owner)).encode('utf-8'), group)
+        print("policy Denis",cipher_text)
         kske = abe_decrypt(mpk, sk, cipher_text).decode()
         return kske
     except Exception as e:

@@ -353,6 +353,7 @@ def encrypt_aes_file(filename, key, output_folder, cipher_file_name):
 
 
 def encrypt_aes_file_sync(filename, key, output_folder, cipher_file_name, file_content):
+    print("encr pass "+key)
     chunk_size = 128 * 1024
     cipher_file_name = filename + '.enc'
     output_filename = os.path.join(output_folder, os.path.basename(cipher_file_name))
@@ -380,12 +381,8 @@ def decrypt_aes_file(cipher_filename, key, output_folder, decrypted_file, variab
     decrypted_file = os.path.splitext(decrypted_file)[0]
     decrypted_filename = os.path.join(output_folder, decrypted_file)
     key_bytes = key.encode('utf-8')  # Convert key to bytes
-    print("cipher filen", cipher_filename)
-    print("key", key)
-    print("out", output_folder)
-    print("decyrped file", decrypted_file)
-    encrypted_file_location = os.path.join(output_folder, cipher_filename)
 
+    encrypted_file_location = os.path.join(output_folder, cipher_filename)
     if variable_output:
         with open(encrypted_file_location, 'rb') as input_file:
             iv = input_file.read(16)

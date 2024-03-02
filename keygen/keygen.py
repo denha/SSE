@@ -172,15 +172,12 @@ def send_keys(entity, key, data_owner=0):
     if entity == "TA":
         print("reached here TA")
         encrypted_key = encrypt_rsa(key, retrieve_public_key("TA"))
-        print("Ta",encrypted_key)
         keystore.hmset('dataowner' + str(data_owner), {'KG': encrypted_key})
         keystore.set('KG', encrypted_key)
 
     if entity == "DELAUTH":
         print("keys",key)
-        print("DAL",retrieve_public_key("DELAUTH"))
         encrypted_key = encrypt_rsa(key, retrieve_public_key("DELAUTH"))
-        print("Delauth",encrypted_key)
         keystore.hmset('dataowner' + str(data_owner), {'KSKE': encrypted_key})
         keystore.set('KSKE', encrypted_key)
 
@@ -191,12 +188,12 @@ def send_keys(entity, key, data_owner=0):
 def retrieve_key(key, data_owner=0):
     keystore = redis_key_store_connection()
     result = keystore.hgetall('dataowner' + str(data_owner))
-    #print("results",result)
+
     decrypted_key = ""
     if key == "KG":
         # decrypted_key = decrypt_rsa(keystore.get("KG"), retrieve_private_key("TA"))
         decrypted_key = decrypt_rsa(result['KG'], retrieve_private_key("TA"))
-        print("Key",decrypted_key)
+
     elif key == "KSKE":
         # decrypted_key = decrypt_rsa(keystore.get("KSKE"), retrieve_private_key("DELAUTH"))
         #print("KSKE", result['KSKE'])
